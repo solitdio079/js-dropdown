@@ -1,80 +1,154 @@
-* {
+*{
     box-sizing: border-box;
+    background-color: var(--dark);
+    color: var(--secondary);
+}
+:root{
+    --primary: #e35f21;
+    --dark: #010506;
+    --darkish: #0105062c;
+    --secondary: #eef8f7;
+    --priority-1: rgba(0, 255, 238, 0.5);
+    --priority-2:rgba(6, 213, 161, 0.5);
+    --priority-3: rgba(8, 230, 78, 0.5);
+    --priority-4: rgba(241, 219, 12, 0.5);
+    --priority-5: rgba(240, 0, 0, 0.5);
+}
+header{
+    padding: 1rem;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+}
+button{
+    border: none;
+    cursor: pointer;
+}
+.dropdown-btn{
+    display: flex;
+    align-items: center;
+    --data-arrow: url("./down.svg");
+}
+.dropdown-btn::after{
+    content: var(--data-arrow);
+    
+    
+}
+.dropdown{
+    position: relative;
 }
 
-header {
+svg{
+    fill: var(--secondary);
+}
+.pages-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+    background-color: var(--secondary);
+    color: var(--dark);
+    padding: .5rem;
+    z-index: 1;
+
+}
+.pages-list li {
+    background-color: var(--secondary);
+    color: var(--dark);
+    padding: .5rem;
+    width: 100%;
+    transition: all .5s;
+
+}
+.pages-list li:hover {
+    background-color:#01050659;
+}
+
+.dropdown-menu{
+    position: absolute;
+    min-width: max-content;
+
+    left: -50px;
+    transition: all 1s;
+}
+
+.hidden{
+    display: none;
+   
+}
+/* Carousel Slides */
+.main{
+    display: flex;
+    width: 100vw;
+    gap: .5rem;
+    padding: .25rem;
+    height: max-content;
+    overflow: hidden;
+    transition: all 1s;
+    position: relative;
+    z-index: 0;
+    
+}
+img.slides {
+    flex-grow: 1;
+    margin: 0 auto;
+    min-width: calc(100vw - .5rem);
+    height: auto;
+    transition: all 1.5s;
+}
+.frame{
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    border: #e35f21 solid 5px;
+    z-index: 2;
+    background: transparent;
+    margin: -.25rem;
+}
+
+.frame .navigation{
+    display: flex;
+    justify-content: space-between;
+    background: transparent;
+    padding: .5rem;
+    width: 100%;
+    height: 90%;
+    align-items: center;
+}
+.navigation button{
+    background: var(--darkish);
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    border: none;
+}
+.navigation button svg {
+    background: transparent;
+    fill: var(--dark);
+}
+.pagination {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    padding: 1rem;
+    background: transparent;
 }
 
-button {
-    border: none;
-    background-color: #2f7bf5;
-    color: white;
-    padding: 5px;
-    font-size: 1.25rem;
+.pagination span {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    border: var(--dark) 1px solid;
 }
-button:hover {
-    background-color: #064dbf;
-}
-
-.container {
-    display: flex;
-    align-items: center;
-    padding: 2rem;
-    background-image: url("./turkish.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 90vh;
-}
-
-.text-content {
-    padding: 1rem;
-    width: 100%;
-    backdrop-filter: grayscale(40%);
-    height: 100%;
-    color: white;
-}
-.text-content h1 {
-    font-size: clamp(3rem, 5vw, 5rem);
-    margin: 0.5rem 0rem;
-}
-
-.menu {
-    display: flex;
-    padding: 2rem;
-    flex-wrap: wrap;
-    gap: 2rem;
-}
-
-.menu-item {
-    background-color: #2f7bf5;
-    color: white;
-    border: 1px solid gray;
-    padding: 0.5rem;
-    min-width: 250px;
-    display: flex;
-    flex-direction: column;
-}
-.menu .ingredients,
-.menu ul {
-    margin: 0 auto;
-}
-.menu .price {
-    margin-left: auto;
-}
-
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #2f7bf5;
-    color: white;
-    padding: 2rem;
-}
-
-.btn-active {
-    background-color: #064dbf;
+span.filled{
+    background: var(--dark);
 }
